@@ -1,0 +1,85 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family:'Courier New', Courier, monospace
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    color: rgb(0, 134, 7);
+}
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px;
+    }
+
+.txt-animado{
+    font-size: 45px;
+    font-weight: 300;
+    display: flex;
+}
+
+.txt-animado span{
+    position: relative;
+}
+
+.txt-animado span::before{
+    content: "";
+    color: red;
+    animation: palavras 20s infinite;
+}
+
+.txt-animado span::after{
+    content:"";
+    position: absolute;
+    height: 100%;
+    border-left: 2px solid red;
+    right: -10px;
+    animation: cursor .8s infinite, digita 20s steps(40) infinite;
+    width: calc(100% + 15px);
+    background-color: white;
+
+}
+
+@keyframes digita {
+    10%, 15%, 30%, 35%, 50%, 55%, 70%, 75%, 90%, 95%{
+        width: 0;
+    }
+    5%, 20%, 25%, 40%, 45%, 60%, 65%, 80%, 85%{
+        width: calc(100% + 15px);
+    }
+}
+
+@keyframes cursor {
+    0%{
+        border-left: 2px solid rgb(0, 0, 0);
+    }
+    
+}
+
+@keyframes palavras {
+    0%,20%{
+        content:"para Italiano";
+    }
+    21%, 40%{
+        content:"apa Italiano"
+    }
+    41%,60%{
+        content:"para Italiano";
+    }
+    61%,100%{
+        content: "apa Italiano";
+    }
+}
+
+.posicao_indexUm{
+    width: 100px;
+}
+
